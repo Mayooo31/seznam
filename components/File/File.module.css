@@ -1,0 +1,49 @@
+.container {
+  width: 50%;
+  height: 100%;
+  background-color: whitesmoke;
+  color: #2f74c0;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.files {
+  display: flex;
+  font-size: 3rem;
+  overflow-x: auto;
+  /* justify-content: space-evenly; */
+  border-bottom: 2px solid #2f75c081;
+  min-height: 8rem;
+}
+
+.files_button {
+  white-space: nowrap;
+  padding: 2rem 4rem;
+}
+
+.files_button:hover {
+  cursor: pointer;
+  background-color: #2f74c0;
+  color: whitesmoke;
+}
+
+.files_button:active {
+  background-color: #4a85c4;
+}
+
+.reading {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 0rem 5rem 5rem 5rem;
+}
+
+.heading {
+  font-size: 6rem;
+}
+
+.text {
+  font-size: 2.6rem;
+  line-height: 1.4;
+}

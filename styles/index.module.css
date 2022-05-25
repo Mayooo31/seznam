@@ -1,0 +1,34 @@
+.container {
+  border: 2px solid white;
+  border-radius: 13rem;
+  width: 80vw;
+  height: 70vh;
+  margin: auto;
+  margin-top: 15vh;
+  overflow: hidden;
+  align-items: center;
+  justify-content: space-around;
+  display: flex;
+  text-align: center;
+}
+
+.reload {
+  position: absolute;
+  cursor: pointer;
+  padding: 1.2rem;
+  border-radius: 50px;
+  background-color: whitesmoke;
+  border: 3px solid #2f74c0;
+}
+
+.reload_icon {
+  height: 2.5rem;
+  width: 2.5rem;
+  color: #2f74c0;
+  transition: all 0.1s;
+}
+
+.reload:hover .reload_icon {
+  transform: scale(1.4) rotate(-60deg);
+  color: #c85021;
+}
