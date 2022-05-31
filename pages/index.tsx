@@ -2,7 +2,9 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import styles from "../styles/index.module.css";
 
-import { useQuery, gql } from "@apollo/client";
+import { gql } from "@apollo/client";
+import { client } from "./_app";
+
 import { useEffect, useState } from "react";
 
 import Folder from "../components/Folder/Folder";
@@ -11,21 +13,9 @@ import { fileModel } from "../model/model";
 
 import CachedIcon from "@mui/icons-material/Cached";
 
-const LIST = gql`
-  query {
-    getList {
-      id
-      name
-      type
-    }
-  }
-`;
-
-const Home: NextPage = () => {
-  const { error, loading, data } = useQuery(LIST);
-
-  const [folders, setFolders] = useState<fileModel[]>([]);
-  const [files, setFiles] = useState<fileModel[]>([]);
+const Home: NextPage = ({ error, loading, data }: any) => {
+  const [folders, setFolders] = useState<fileModel[] | null>(null);
+  const [files, setFiles] = useState<fileModel[] | null>(null);
   const [reload, setReload] = useState<boolean>(false);
 
   useEffect(() => {
@@ -60,5 +50,23 @@ const Home: NextPage = () => {
     </div>
   );
 };
+
+export async function getStaticProps() {
+  const { error, loading, data } = await client.query({
+    query: gql`
+      query {
+        getList {
+          id
+          name
+          type
+        }
+      }
+    `,
+  });
+
+  return {
+    props: JSON.parse(JSON.stringify({ error, loading, data })),
+  };
+}
 
 export default Home;

@@ -5,7 +5,7 @@ import styles from "./File.module.css";
 import { useLazyQuery, gql } from "@apollo/client";
 
 type FileProps = {
-  files: fileModel[];
+  files: fileModel[] | null;
   loadingFile: boolean;
   errorFile: any;
 };

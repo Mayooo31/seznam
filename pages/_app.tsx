@@ -3,7 +3,7 @@ import type { AppProps } from "next/app";
 
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 
-const client = new ApolloClient({
+export const client = new ApolloClient({
   uri: "https://react-test.atlasconsulting.cz/",
   cache: new InMemoryCache(),
 });

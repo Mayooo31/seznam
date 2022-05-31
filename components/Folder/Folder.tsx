@@ -5,9 +5,9 @@ import { useLazyQuery, gql } from "@apollo/client";
 import { useEffect, useState } from "react";
 
 type FolderProps = {
-  folders: fileModel[];
-  setFolders: React.Dispatch<React.SetStateAction<fileModel[]>>;
-  setFiles: React.Dispatch<React.SetStateAction<fileModel[]>>;
+  folders: fileModel[] | null;
+  setFolders: React.Dispatch<React.SetStateAction<fileModel[] | null>>;
+  setFiles: React.Dispatch<React.SetStateAction<fileModel[] | null>>;
   loadingFolder: boolean;
   errorFolder: any;
 };
